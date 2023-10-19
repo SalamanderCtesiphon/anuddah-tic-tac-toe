@@ -72,3 +72,21 @@ section {
    border-right: 4px solid black;
 }
 
+.game-row>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-row>div>button {
+  font-size: 40px;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(211, 211, 211, 0);
+}
+
+.game-row>div>button:hover {
+  background-color: rgba(211, 211, 211, 0.325);
+}
