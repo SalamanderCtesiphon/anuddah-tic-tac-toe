@@ -169,7 +169,7 @@ function App() {
               )
             })
           ) : (
-            <h2>{gameWinner}</h2>
+            <h1>{gameWinner}</h1>
           )}
         </div>
       </div>
