@@ -35,10 +35,12 @@ h1 {
 }
 
 button {
+  height: 98px;
+  width: 98px;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.2em .5em;
+  font-size: .5em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -47,6 +49,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
+  background-color: #292929;
 }
 button:focus,
 button:focus-visible {

@@ -49,7 +49,7 @@ function App() {
           {gameboard.map((square) => {
             return (
               <div key={square.id} className="game-square">
-                {square.value}
+                <button>{square.value}</button>
               </div>
             )
           })}
