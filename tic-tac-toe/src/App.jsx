@@ -40,7 +40,6 @@ function App() {
       value: ' ',
     },
   ])
-
   const [activePlayer, setActivePlayer] = useState('playerX')
   const [gameWinner, setGameWinner] = useState(null)
 
@@ -107,37 +106,27 @@ function App() {
       return tempArr.push(square.value)
     })
 
-    if (tempArr[0] === 'X' && tempArr[1] === 'X' && tempArr[2] === 'X') {
+    if (
+      (tempArr[0] === 'X' && tempArr[1] === 'X' && tempArr[2] === 'X') ||
+      (tempArr[0] === 'X' && tempArr[4] === 'X' && tempArr[8] === 'X') ||
+      (tempArr[0] === 'X' && tempArr[3] === 'X' && tempArr[6] === 'X') ||
+      (tempArr[1] === 'X' && tempArr[4] === 'X' && tempArr[7] === 'X') ||
+      (tempArr[2] === 'X' && tempArr[4] === 'X' && tempArr[6] === 'X') ||
+      (tempArr[6] === 'X' && tempArr[7] === 'X' && tempArr[8] === 'X') ||
+      (tempArr[3] === 'X' && tempArr[4] === 'X' && tempArr[5] === 'X') ||
+      (tempArr[2] === 'X' && tempArr[5] === 'X' && tempArr[8] === 'X')
+    ) {
       setGameWinner('X wins!')
-    } else if (tempArr[0] === 'X' && tempArr[4] === 'X' && tempArr[8] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[0] === 'X' && tempArr[3] === 'X' && tempArr[6] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[1] === 'X' && tempArr[4] === 'X' && tempArr[7] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[2] === 'X' && tempArr[5] === 'X' && tempArr[8] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[3] === 'X' && tempArr[4] === 'X' && tempArr[5] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[6] === 'X' && tempArr[7] === 'X' && tempArr[8] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[2] === 'X' && tempArr[4] === 'X' && tempArr[6] === 'X') {
-      setGameWinner('X wins!')
-    } else if (tempArr[0] === 'O' && tempArr[1] === 'O' && tempArr[2] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[0] === 'O' && tempArr[4] === 'O' && tempArr[8] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[0] === 'O' && tempArr[3] === 'O' && tempArr[6] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[1] === 'O' && tempArr[4] === 'O' && tempArr[7] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[2] === 'O' && tempArr[5] === 'O' && tempArr[8] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[3] === 'O' && tempArr[4] === 'O' && tempArr[5] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[6] === 'O' && tempArr[7] === 'O' && tempArr[8] === 'O') {
-      setGameWinner('O wins!')
-    } else if (tempArr[2] === 'O' && tempArr[4] === 'O' && tempArr[6] === 'O') {
+    } else if (
+      (tempArr[0] === 'O' && tempArr[1] === 'O' && tempArr[2] === 'O') ||
+      (tempArr[0] === 'O' && tempArr[4] === 'O' && tempArr[8] === 'O') ||
+      (tempArr[0] === 'O' && tempArr[3] === 'O' && tempArr[6] === 'O') ||
+      (tempArr[1] === 'O' && tempArr[4] === 'O' && tempArr[7] === 'O') ||
+      (tempArr[2] === 'O' && tempArr[5] === 'O' && tempArr[8] === 'O') ||
+      (tempArr[3] === 'O' && tempArr[4] === 'O' && tempArr[5] === 'O') ||
+      (tempArr[6] === 'O' && tempArr[7] === 'O' && tempArr[8] === 'O') ||
+      (tempArr[2] === 'O' && tempArr[4] === 'O' && tempArr[6] === 'O')
+    ) {
       setGameWinner('O wins!')
     }
     return gameboard, gameWinner
