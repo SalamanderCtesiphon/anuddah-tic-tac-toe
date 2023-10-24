@@ -43,6 +43,50 @@ function App() {
 
   const [activePlayer, setActivePlayer] = useState('playerX')
 
+  function resetGame() {
+    gameboard.map((square) => {
+      square.value = ' '
+    })
+    setGameboard([
+      {
+        id: 1,
+        value: ' ',
+      },
+      {
+        id: 2,
+        value: ' ',
+      },
+      {
+        id: 3,
+        value: ' ',
+      },
+      {
+        id: 4,
+        value: ' ',
+      },
+      {
+        id: 5,
+        value: ' ',
+      },
+      {
+        id: 6,
+        value: ' ',
+      },
+      {
+        id: 7,
+        value: ' ',
+      },
+      {
+        id: 8,
+        value: ' ',
+      },
+      {
+        id: 9,
+        value: ' ',
+      },
+    ])
+  }
+
   function handleSquareClick(id) {
     gameboard.map((square) => {
       if (square.id === id) {
@@ -65,37 +109,37 @@ function App() {
     })
     console.log(tempArr)
     if (tempArr[0] === 'X' && tempArr[1] === 'X' && tempArr[2] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[0] === 'X' && tempArr[4] === 'X' && tempArr[8] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[0] === 'X' && tempArr[3] === 'X' && tempArr[6] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[1] === 'X' && tempArr[4] === 'X' && tempArr[7] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[2] === 'X' && tempArr[5] === 'X' && tempArr[8] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[3] === 'X' && tempArr[4] === 'X' && tempArr[5] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[6] === 'X' && tempArr[7] === 'X' && tempArr[8] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[2] === 'X' && tempArr[4] === 'X' && tempArr[6] === 'X') {
-      console.log('X Wins!')
+      alert('X Wins!')
     } else if (tempArr[0] === 'O' && tempArr[1] === 'O' && tempArr[2] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[0] === 'O' && tempArr[4] === 'O' && tempArr[8] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[0] === 'O' && tempArr[3] === 'O' && tempArr[6] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[1] === 'O' && tempArr[4] === 'O' && tempArr[7] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[2] === 'O' && tempArr[5] === 'O' && tempArr[8] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[3] === 'O' && tempArr[4] === 'O' && tempArr[5] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[6] === 'O' && tempArr[7] === 'O' && tempArr[8] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     } else if (tempArr[2] === 'O' && tempArr[4] === 'O' && tempArr[6] === 'O') {
-      console.log('O Wins!')
+      alert('O Wins!')
     }
     return gameboard
   }
@@ -104,6 +148,10 @@ function App() {
     <>
       <div className="screen">
         <h2>Tic Tac Toe Game</h2>
+        <button onClick={resetGame}>Reset Game</button>
+        <h1>
+          {activePlayer === 'playerX' ? "Player X's turn" : "Player O's turn"}
+        </h1>
         <div className="game-board">
           {gameboard.map((square) => {
             return (
