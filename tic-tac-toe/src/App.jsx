@@ -48,7 +48,7 @@ function App() {
         <div className="game-board">
           {gameboard.map((square) => {
             return (
-              <div key={square.id} className="game-square">
+              <div key={square.id} className="game-square cell">
                 <button>{square.value}</button>
               </div>
             )
