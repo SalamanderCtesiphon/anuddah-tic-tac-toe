@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
@@ -59,7 +59,11 @@ function App() {
         }
       }
     })
-    console.log(gameboard)
+    const tempArr = []
+    gameboard.map((square) => {
+      return tempArr.push(square.value)
+    })
+    console.log(tempArr)
     return gameboard
   }
 
