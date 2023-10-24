@@ -46,12 +46,16 @@ function App() {
   function handleSquareClick(id) {
     gameboard.map((square) => {
       if (square.id === id) {
-        if (activePlayer === 'playerX') {
-          square.value = 'X'
-          setActivePlayer('playerO')
+        if (square.value != ' ') {
+          return
         } else {
-          square.value = 'O'
-          setActivePlayer('playerX')
+          if (activePlayer === 'playerX') {
+            square.value = 'X'
+            setActivePlayer('playerO')
+          } else {
+            square.value = 'O'
+            setActivePlayer('playerX')
+          }
         }
       }
     })
