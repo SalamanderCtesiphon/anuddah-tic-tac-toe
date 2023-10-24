@@ -42,11 +42,10 @@ function App() {
   ])
 
   const [activePlayer, setActivePlayer] = useState('playerX')
+  const [gameWinner, setGameWinner] = useState(null)
 
   function resetGame() {
-    gameboard.map((square) => {
-      square.value = ' '
-    })
+    setGameWinner(null)
     setGameboard([
       {
         id: 1,
@@ -107,61 +106,71 @@ function App() {
     gameboard.map((square) => {
       return tempArr.push(square.value)
     })
-    console.log(tempArr)
+
     if (tempArr[0] === 'X' && tempArr[1] === 'X' && tempArr[2] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[0] === 'X' && tempArr[4] === 'X' && tempArr[8] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[0] === 'X' && tempArr[3] === 'X' && tempArr[6] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[1] === 'X' && tempArr[4] === 'X' && tempArr[7] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[2] === 'X' && tempArr[5] === 'X' && tempArr[8] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[3] === 'X' && tempArr[4] === 'X' && tempArr[5] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[6] === 'X' && tempArr[7] === 'X' && tempArr[8] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[2] === 'X' && tempArr[4] === 'X' && tempArr[6] === 'X') {
-      alert('X Wins!')
+      setGameWinner('X wins!')
     } else if (tempArr[0] === 'O' && tempArr[1] === 'O' && tempArr[2] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[0] === 'O' && tempArr[4] === 'O' && tempArr[8] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[0] === 'O' && tempArr[3] === 'O' && tempArr[6] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[1] === 'O' && tempArr[4] === 'O' && tempArr[7] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[2] === 'O' && tempArr[5] === 'O' && tempArr[8] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[3] === 'O' && tempArr[4] === 'O' && tempArr[5] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[6] === 'O' && tempArr[7] === 'O' && tempArr[8] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     } else if (tempArr[2] === 'O' && tempArr[4] === 'O' && tempArr[6] === 'O') {
-      alert('O Wins!')
+      setGameWinner('O wins!')
     }
-    return gameboard
+    return gameboard, gameWinner
   }
 
   return (
     <>
       <div className="screen">
-        <h2>Tic Tac Toe Game</h2>
-        <button onClick={resetGame}>Reset Game</button>
-        <h1>
-          {activePlayer === 'playerX' ? "Player X's turn" : "Player O's turn"}
-        </h1>
+        <h1>Tic Tac Toe Game</h1>
+        <button onClick={resetGame} id="game-btn">
+          Reset Game
+        </button>
+        {gameWinner === null ? (
+          <h2>
+            {activePlayer === 'playerX' ? "Player X's turn" : "Player O's turn"}
+          </h2>
+        ) : (
+          ''
+        )}
         <div className="game-board">
-          {gameboard.map((square) => {
-            return (
-              <div key={square.id} className="game-square cell">
-                <button onClick={() => handleSquareClick(square.id)}>
-                  {square.value}
-                </button>
-              </div>
-            )
-          })}
+          {gameWinner === null ? (
+            gameboard.map((square) => {
+              return (
+                <div key={square.id} className="game-square cell">
+                  <button onClick={() => handleSquareClick(square.id)}>
+                    {square.value}
+                  </button>
+                </div>
+              )
+            })
+          ) : (
+            <h2>{gameWinner}</h2>
+          )}
         </div>
       </div>
     </>

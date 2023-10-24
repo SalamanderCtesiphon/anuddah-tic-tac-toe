@@ -10,7 +10,13 @@
   height: 300px;
   width: 300px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+#game-btn {
+  height: 40px;
 }
 
 .game-square {
